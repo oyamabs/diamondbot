@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Jetons :", dbfile[author].tokens)
     .addField("RP :", dbfile[author].rp)
     .addField("Prochain tour de roue :",  new Date(dbfile[author].nextWheel).toString())
-    .addField("Prochaine récupération des jetons quotidiens :", new Date(dbfile[author].nexyDaily))
+    .addField("Prochaine récupération des jetons quotidiens :", new Date(dbfile[author].nextDaily).toString())
 
     message.channel.send(newEmbed);
 }

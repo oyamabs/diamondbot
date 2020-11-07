@@ -14,10 +14,14 @@ module.exports.run = async (bot, message, args) => {
         if(args.length < 1 || args[0] > 50 || args[0] < 1) return message.reply("Mauvais usage de la commande ! `d!coinflip <mise (inférieure à 50)>`");
 
         let coin = Math.floor(Math.random() * 2);
+
+        let winning = Number(args[0])+10;
+
         if (coin == 0) {
             message.reply("Vous avez gagné ! Vous remportez votre mise + 10 jetons");
 
-            dbfile[author].tokens += args[0]+10;
+
+            dbfile[author].tokens += winning;
             write(dbfile);
         } else {
             message.reply("Vous avez perdu ! Mais vous pouvez retenter !");
