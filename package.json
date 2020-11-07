@@ -1,0 +1,12 @@
+{
+  "name": "diamond-bot",
+  "version": "0.0.1",
+  "description": "DiamondBot",
+  "main": "app.js",
+  "author": {
+    "name": "yama"
+  },
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
