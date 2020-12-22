@@ -10,8 +10,9 @@ module.exports.run = async (bot, message, args) => {
 
         // si le joueur n'a pas de compte
         if (!dbfile[author]) return message.reply("Vous n'avez pas de compte ! Veuillez en créer un avec la commande `d!createaccount`");
+        if(args.length < 1 || args[0] > 50 || args[0] < 1 || args[0] > dbfile[author].tokens) return message.reply("Mauvais usage de la commande ! `d!coinflip <mise (inférieure à 50)> et vous ne pouvez pas miser plus que ce que vous avez (la maison ne fait plus crédit) !`");
 
-        if(args.length < 1 || args[0] > 50 || args[0] < 1) return message.reply("Mauvais usage de la commande ! `d!coinflip <mise (inférieure à 50)>`");
+        if(!Number(args[0])) return message.reply("Mauvais argument, la mise doit être un nombre");
 
         let coin = Math.floor(Math.random() * 2);
 

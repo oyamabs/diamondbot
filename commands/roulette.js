@@ -17,9 +17,12 @@ module.exports.run = async (bot, message, args) => {
             premier argument mauvais
             mise inférieure a 100 tokens
         */
+
         if (args.lenght < 2) return message.reply("Mauvais usage de la commande : `d!roulette <red | black> <mise (supérieure ou égale à 100 jetons)>`");
         if (args[0] != "red" && args[0] != "black") return message.reply("Mauvais usage de la commande : `d!roulette <red | black> <mise (supérieure ou égale à 100 jetons)>`");
         if (args[1] < 100 || args[1] > dbfile[author].tokens || args[1] < 1) return message.reply("La mise doit être supérieure ou égale à 100 jetons et vous ne pouvez pas miser plus que ce que vous avez (la maison ne fait pas crédit) !");
+
+        if(!Number(args[1])) return message.reply("Mauvais argument, la mise doit être un nombre");
 
         // sauvegarde du resultat de la roulette
         let resultRoulette = rouletteTurn();
@@ -43,9 +46,6 @@ module.exports.run = async (bot, message, args) => {
             dbfile[author].tokens -= args[1];
             write(dbfile); // écriture du ficher db
         }
-        
-
-
 }
 
 module.exports.help = {
