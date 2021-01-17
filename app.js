@@ -9,9 +9,10 @@ bot.commands = new Discord.Collection();
 
 // event de vérification de l'état du bot
 bot.on("ready", async () => {
-    console.log("")
-    console.log(`${botconfig.name} est en ligne !`)
-    bot.user.setActivity("d!help", { type: "PLAYING" })
+    let isOnDev = botconfig.isDev ? "d!help (en developpement 🔨)" : "d!help"; // si botconfig.isDev == true ; on précise dans le status du bot qu'il est en dev
+
+    console.log(`\n${botconfig.name} est en ligne !`)
+    bot.user.setActivity(isOnDev, { type: "PLAYING" })
 })
 
 // initialisation des commandes
