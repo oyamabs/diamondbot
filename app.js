@@ -40,7 +40,7 @@ bot.on("message", message => {
 
     let prefix = botconfig.prefix;
 
-    if(!message.content.startsWith(prefix))return;
+    if(!mess.startsWith(prefix)) return;
 
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
